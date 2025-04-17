@@ -3,9 +3,7 @@ import 'imin_printer_platform_interface.dart';
 import 'enums.dart';
 import 'imin_style.dart';
 import 'column_maker.dart';
-import 'package:logger/logger.dart';
 
-var logger = Logger();
 
 class IminPrinter {
   Future<String?> getSdkVersion() {
