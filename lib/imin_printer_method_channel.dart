@@ -6,9 +6,7 @@ import 'enums.dart';
 import 'column_maker.dart';
 import 'imin_style.dart';
 import 'imin_printer_platform_interface.dart';
-import 'package:logger/logger.dart';
 
-var logger = Logger();
 
 /// An implementation of [IminPrinterPlatform] that uses method channels.
 class MethodChannelIminPrinter extends IminPrinterPlatform {
