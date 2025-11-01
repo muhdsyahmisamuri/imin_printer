@@ -35,7 +35,7 @@ class MethodChannelIminPrinter extends IminPrinterPlatform {
   @override
   Future<Map<String, dynamic>> getPrinterStatus() async {
     final code = await methodChannel.invokeMethod<String>('getPrinterStatus');
-    logger.d('code $code');
+    
     Map<String, dynamic> printerStatus = <String, dynamic>{
       "code": code,
       "msg": PrinterStatus.getValue(code ?? '-1')
@@ -87,7 +87,7 @@ class MethodChannelIminPrinter extends IminPrinterPlatform {
 
   @override
   Future<void> setTextStyle(IminFontStyle style) async {
-    logger.d('setTextStyle', style.index);
+    
     Map<String, dynamic> arguments = <String, dynamic>{
       "style": style.index,
     };
@@ -255,7 +255,7 @@ class MethodChannelIminPrinter extends IminPrinterPlatform {
         }
       }
     }
-    logger.d('printBarCode: $arguments');
+   
     await methodChannel.invokeMethod<void>('printBarCode', arguments);
   }
 
@@ -712,38 +712,38 @@ class MethodChannelIminPrinter extends IminPrinterPlatform {
       // }
       arguments.putIfAbsent('text', () => text);
       if (style.fontSize != null) {
-        logger.d('fontSize');
+      
         await setTextBitmapSize(style.fontSize!);
       }
       if (style.typeface != null) {
-        logger.d('typeface');
+       
         await setTextBitmapTypeface(style.typeface!);
       }
       if (style.fontStyle != null) {
-        logger.d('fontStyle');
+        
         await setTextBitmapStyle(style.fontStyle!);
       }
       if (style.throughline != null) {
-        logger.d('throughline');
+       
         await setTextBitmapStrikeThru(style.throughline!);
       }
       if (style.underline != null) {
-        logger.d('underline');
+       
         await setTextBitmapUnderline(style.underline!);
       }
 
       if (style.lineHeight != null) {
-        logger.d('lineHeight', style.lineHeight);
+    
         await setTextBitmapLineSpacing(style.lineHeight!);
       }
 
       if (style.letterSpacing != null) {
-        logger.d('letterSpacing');
+       
         await setTextBitmapLetterSpacing(style.letterSpacing!);
       }
 
       if (style.reverseWhite != null) {
-        logger.d('reverseWhite');
+      
         await setTextBitmapAntiWhite(style.reverseWhite!);
       }
     } else {
